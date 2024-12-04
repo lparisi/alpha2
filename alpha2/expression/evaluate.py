@@ -2,6 +2,7 @@ import jax
 import jax.numpy as jnp
 from alpha2.expression.structure import Value
 
+
 @jax.jit
 def compute_metric(alpha: jnp.ndarray):
     """
@@ -14,10 +15,13 @@ def compute_metric(alpha: jnp.ndarray):
     float: The computed evaluation metric.
     """
     # Generate random returns for demonstration
-    returns = jnp.array([jnp.random.randn(alpha.shape[1]) for _ in range(alpha.shape[0])])
-    
+    returns = jnp.array(
+        [jnp.random.randn(alpha.shape[1]) for _ in range(alpha.shape[0])]
+    )
+
     num_days = len(returns)
     return compute_ic(alpha, returns, num_days)
+
 
 @jax.jit
 def compute_ic(alpha: jnp.ndarray, returns: jnp.ndarray, num_days: int) -> float:
@@ -40,7 +44,8 @@ def compute_ic(alpha: jnp.ndarray, returns: jnp.ndarray, num_days: int) -> float
         ic += cov / (std_alpha * std_returns)
     return ic / num_days
 
-def fast_evaluate(alpha: Value): 
+
+def fast_evaluate(alpha: Value):
     """
     Wrapper function to evaluate an alpha value.
 
