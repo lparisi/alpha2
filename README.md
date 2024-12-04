@@ -7,7 +7,7 @@ This repository contains pseudocode and algorithms for the paper "$\text{Alpha}^
 # Code Structure
 
 - `utils`: utility functions for logging and loading configs
-- `computation_data.py`: Generates a data file for the experiment ro run
+- `computation_data.py`: Generates a data file for the experiment to run
 - `run.py`: main file for running the experiment
 - `run.sh`: script to start an experiment: first generate computation data, then start the runner
 - `configs` configuration files
